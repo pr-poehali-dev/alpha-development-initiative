@@ -1,3 +1,7 @@
-# alpha-development-initiative
+# Артём Волков — Портфолио Фрилансера
 
-Initial repository setup for pr-poehali-dev/alpha-development-initiative
+![Preview](https://cdn.poehali.dev/templates/freelancer-ru/preview-ru.jpg)
+
+Минималистичный лендинг для веб-разработчика или дизайнера на фрилансе. Переключатель тёмной/светлой темы, секции с услугами и контактной формой. Чистый и профессиональный дизайн для презентации своих навыков и привлечения клиентов.
+
+`"tags": ["portfolio", "landing", "dark", "light", "developer", "creative"]`
