@@ -6,7 +6,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Github, Send as Telegram, Mail, Code, Palette, Zap, Loader2, Send, Moon, Sun } from "lucide-react";
+import Icon from "@/components/ui/icon";
+import { Loader2, Send, Moon, Sun, Mail } from "lucide-react";
 
 export default function HomePage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -22,7 +23,6 @@ export default function HomePage() {
     event.preventDefault();
     setIsSubmitting(true);
 
-    // Имитация отправки
     await new Promise((resolve) => setTimeout(resolve, 1500));
 
     toast({
@@ -41,9 +41,9 @@ export default function HomePage() {
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-              <Code className="w-4 h-4 text-primary-foreground" />
+              <Icon name="Palette" size={16} className="text-primary-foreground" />
             </div>
-            <span className="font-semibold text-lg">Артём Волков</span>
+            <span className="font-semibold text-lg">Живопись & Рисунок</span>
           </div>
           <Button variant="outline" size="icon" onClick={toggleTheme}>
             {isDark ? <Sun className="h-[1.2rem] w-[1.2rem]" /> : <Moon className="h-[1.2rem] w-[1.2rem]" />}
@@ -56,33 +56,30 @@ export default function HomePage() {
         <div className="container mx-auto max-w-4xl text-center">
           <div className="mb-6">
             <Badge variant="secondary" className="mb-4">
-              Открыт для проектов
+              Принимаю заказы
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-              Веб-разработчик на фрилансе
+              Художник по живописи и рисунку
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-              Создаю современные, адаптивные веб-приложения на React, TypeScript и Node.js.
-              Превращаю ваши идеи в работающий продукт с чистым кодом и отличным UX.
+              Создаю портреты, пейзажи и авторские картины под заказ. Работаю с маслом, акварелью и графикой.
+              Превращаю ваши идеи и воспоминания в живые произведения искусства.
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button size="lg" className="text-lg px-8" asChild>
-              <a href="#contact">Обсудить проект</a>
+              <a href="#contact">Заказать картину</a>
             </Button>
           </div>
 
-          <div className="flex justify-center gap-6">
-            <a href="https://github.com" className="text-muted-foreground hover:text-foreground transition-colors">
-              <Github className="w-6 h-6" />
-            </a>
-            <a href="https://t.me" className="text-muted-foreground hover:text-foreground transition-colors">
-              <Telegram className="w-6 h-6" />
-            </a>
-            <a href="mailto:artem@example.com" className="text-muted-foreground hover:text-foreground transition-colors">
-              <Mail className="w-6 h-6" />
-            </a>
+          {/* Hero Image */}
+          <div className="rounded-2xl overflow-hidden max-w-2xl mx-auto shadow-xl">
+            <img
+              src="https://cdn.poehali.dev/projects/0728a19f-4470-44ae-9340-d7bff4ba05e9/files/e55bdc6f-8c2f-4418-a371-98d0a6fa3f6a.jpg"
+              alt="Художественная мастерская"
+              className="w-full h-64 object-cover"
+            />
           </div>
         </div>
       </section>
@@ -91,9 +88,9 @@ export default function HomePage() {
       <section id="services" className="py-20 px-4 bg-muted/30">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Что я делаю</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Мои услуги</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Специализированные услуги для развития вашего бизнеса в интернете
+              Индивидуальный подход к каждому заказу — от эскиза до готовой работы
             </p>
           </div>
 
@@ -101,17 +98,17 @@ export default function HomePage() {
             <Card className="p-6 hover:shadow-lg transition-shadow">
               <CardContent className="p-0">
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <Code className="w-6 h-6 text-primary" />
+                  <Icon name="User" size={24} className="text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Веб-разработка</h3>
+                <h3 className="text-xl font-semibold mb-3">Портреты на заказ</h3>
                 <p className="text-muted-foreground mb-4">
-                  Сайты и веб-приложения на современных технологиях: React, Next.js,
-                  TypeScript. От лендингов до сложных SaaS-платформ.
+                  Пишу портреты по фотографии или с натуры. Масло, акварель, уголь.
+                  Идеальный подарок близким или украшение для дома.
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  <Badge variant="secondary">React</Badge>
-                  <Badge variant="secondary">Next.js</Badge>
-                  <Badge variant="secondary">TypeScript</Badge>
+                  <Badge variant="secondary">Масло</Badge>
+                  <Badge variant="secondary">Акварель</Badge>
+                  <Badge variant="secondary">Уголь</Badge>
                 </div>
               </CardContent>
             </Card>
@@ -119,17 +116,17 @@ export default function HomePage() {
             <Card className="p-6 hover:shadow-lg transition-shadow">
               <CardContent className="p-0">
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <Palette className="w-6 h-6 text-primary" />
+                  <Icon name="Mountain" size={24} className="text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">UI/UX и прототипирование</h3>
+                <h3 className="text-xl font-semibold mb-3">Пейзажи и натюрморты</h3>
                 <p className="text-muted-foreground mb-4">
-                  Быстрые макеты и интерактивные прототипы с помощью современных
-                  инструментов. От идеи до рабочего демо за считанные часы.
+                  Авторские пейзажи, городские виды и натюрморты. Работаю как по
+                  заказу, так и с готовыми работами для продажи.
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  <Badge variant="secondary">Figma</Badge>
-                  <Badge variant="secondary">Прототипы</Badge>
-                  <Badge variant="secondary">Демо</Badge>
+                  <Badge variant="secondary">Пейзаж</Badge>
+                  <Badge variant="secondary">Натюрморт</Badge>
+                  <Badge variant="secondary">Городской вид</Badge>
                 </div>
               </CardContent>
             </Card>
@@ -137,17 +134,17 @@ export default function HomePage() {
             <Card className="p-6 hover:shadow-lg transition-shadow">
               <CardContent className="p-0">
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <Zap className="w-6 h-6 text-primary" />
+                  <Icon name="BookOpen" size={24} className="text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Производительность</h3>
+                <h3 className="text-xl font-semibold mb-3">Уроки рисования</h3>
                 <p className="text-muted-foreground mb-4">
-                  Быстрые и оптимизированные приложения с отличным UX
-                  и высокими показателями в поисковиках.
+                  Индивидуальные занятия для начинающих и продолжающих.
+                  Онлайн и офлайн формат, разные техники и материалы.
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  <Badge variant="secondary">SEO</Badge>
-                  <Badge variant="secondary">Core Web Vitals</Badge>
-                  <Badge variant="secondary">Оптимизация</Badge>
+                  <Badge variant="secondary">Онлайн</Badge>
+                  <Badge variant="secondary">Офлайн</Badge>
+                  <Badge variant="secondary">Для начинающих</Badge>
                 </div>
               </CardContent>
             </Card>
@@ -159,17 +156,17 @@ export default function HomePage() {
       <section id="contact" className="py-20 px-4">
         <div className="container mx-auto max-w-2xl">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Давайте работать вместе</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Давайте создадим что-то красивое</h2>
             <p className="text-lg text-muted-foreground">
-              Готовы начать проект? Напишите мне, и обсудим детали.
+              Готовы сделать заказ или хотите узнать подробнее? Напишите — обсудим детали.
             </p>
           </div>
 
           <Card className="w-full max-w-2xl mx-auto">
             <CardHeader>
-              <CardTitle>Напишите мне</CardTitle>
+              <CardTitle>Написать художнику</CardTitle>
               <CardDescription>
-                Расскажите о вашем проекте. Отвечу в течение 24 часов.
+                Расскажите, что хотите заказать. Отвечу в течение 24 часов.
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -197,7 +194,7 @@ export default function HomePage() {
                   <Textarea
                     id="message"
                     name="message"
-                    placeholder="Расскажите о вашем проекте, сроках и бюджете..."
+                    placeholder="Опишите желаемую картину: тематика, размер, техника, срок..."
                     className="min-h-[120px]"
                     required
                     disabled={isSubmitting}
@@ -213,20 +210,27 @@ export default function HomePage() {
                   ) : (
                     <>
                       <Send className="mr-2 h-4 w-4" />
-                      Отправить
+                      Отправить заявку
                     </>
                   )}
                 </Button>
               </form>
             </CardContent>
           </Card>
+
+          <div className="flex justify-center gap-6 mt-8">
+            <a href="mailto:artist@example.com" className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2">
+              <Mail className="w-5 h-5" />
+              <span className="text-sm">artist@example.com</span>
+            </a>
+          </div>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="border-t py-8 px-4">
         <div className="container mx-auto max-w-6xl text-center text-muted-foreground">
-          <p>&copy; 2024 Артём Волков. Все права защищены.</p>
+          <p>&copy; 2024 Специалист по живописи и рисунку. Все права защищены.</p>
         </div>
       </footer>
     </div>
