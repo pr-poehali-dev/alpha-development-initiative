@@ -43,7 +43,7 @@ export default function HomePage() {
             <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
               <Icon name="Palette" size={16} className="text-primary-foreground" />
             </div>
-            <span className="font-semibold text-lg">Живопись & Рисунок</span>
+            <span className="font-semibold text-lg">Малетина Полина</span>
           </div>
           <Button variant="outline" size="icon" onClick={toggleTheme}>
             {isDark ? <Sun className="h-[1.2rem] w-[1.2rem]" /> : <Moon className="h-[1.2rem] w-[1.2rem]" />}
@@ -230,7 +230,7 @@ export default function HomePage() {
       {/* Footer */}
       <footer className="border-t py-8 px-4">
         <div className="container mx-auto max-w-6xl text-center text-muted-foreground">
-          <p>&copy; 2024 Специалист по живописи и рисунку. Все права защищены.</p>
+          <p>&copy; 2024 Малетина Полина — Специалист по живописи. Все права защищены.</p>
         </div>
       </footer>
     </div>
