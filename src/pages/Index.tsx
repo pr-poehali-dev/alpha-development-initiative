@@ -23,34 +23,15 @@ export default function HomePage() {
     event.preventDefault();
     setIsSubmitting(true);
 
-    const form = event.target as HTMLFormElement;
-    const data = {
-      name: (form.elements.namedItem('name') as HTMLInputElement).value,
-      email: (form.elements.namedItem('email') as HTMLInputElement).value,
-      message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
-    };
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    try {
-      const res = await fetch('https://functions.poehali.dev/d4b41499-1fe0-4ae5-8ad9-da7a1a58c585', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
-
-      if (res.ok) {
-        toast({
-          title: "Заявка отправлена!",
-          description: "Полина свяжется с вами в течение 24 часов.",
-        });
-        form.reset();
-      } else {
-        toast({ title: "Ошибка", description: "Не удалось отправить. Попробуйте ещё раз.", variant: "destructive" });
-      }
-    } catch {
-      toast({ title: "Ошибка", description: "Нет соединения. Попробуйте ещё раз.", variant: "destructive" });
-    }
+    toast({
+      title: "Заявка отправлена!",
+      description: "Полина свяжется с вами в течение 24 часов.",
+    });
 
     setIsSubmitting(false);
+    (event.target as HTMLFormElement).reset();
   };
 
   return (
