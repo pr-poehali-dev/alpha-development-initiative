@@ -8,11 +8,13 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import Icon from "@/components/ui/icon";
 import { Loader2, Send, Moon, Sun, Mail } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function HomePage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isDark, setIsDark] = useState(false);
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const toggleTheme = () => {
     setIsDark(!isDark);
@@ -45,9 +47,15 @@ export default function HomePage() {
             </div>
             <span className="font-semibold text-lg">Малетина Полина</span>
           </div>
-          <Button variant="outline" size="icon" onClick={toggleTheme}>
-            {isDark ? <Sun className="h-[1.2rem] w-[1.2rem]" /> : <Moon className="h-[1.2rem] w-[1.2rem]" />}
-          </Button>
+          <div className="flex items-center gap-2">
+            <nav className="flex gap-1">
+              <Button variant="default">О себе</Button>
+              <Button variant="ghost" onClick={() => navigate("/portfolio")}>Портфолио</Button>
+            </nav>
+            <Button variant="outline" size="icon" onClick={toggleTheme}>
+              {isDark ? <Sun className="h-[1.2rem] w-[1.2rem]" /> : <Moon className="h-[1.2rem] w-[1.2rem]" />}
+            </Button>
+          </div>
         </div>
       </header>
 
